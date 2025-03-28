@@ -28,22 +28,20 @@ func (s *RemoteAgentServer) ExecuteTask(
 ) (*connect.Response[proto.ExecuteTaskResponse], error) {
 	slog.Info("ExecuteTask", "request", req.Msg)
 
-	// リクエストからsession_idを取得
-	f := s.factory.NewAgentFactory()
-	agent := f(req.Msg)
-	out, err := agent.Execute(ctx, req.Msg.Instruction)
-	if err != nil {
-		return nil, err
-	}
-	// レスポンスの作成
-	res := &proto.ExecuteTaskResponse{
-		SessionId: req.Msg.SessionId,
-		Stdout:    out,
-		Stderr:    "",
-		Success:   true,
+	agent := s.factory.NewAgentFactory()(req.Msg)
+	longCtx := context.Background()
+	go func() {
+		if _, err := agent.Execute(longCtx, req.Msg.Instruction); err != nil {
+			slog.Error("Error executing task", "error", err)
+		}
+	}()
+
+	resp := &proto.ExecuteTaskResponse{
+		Stdout: "Task enqueued successfully",
+		Stderr: "",
 	}
 
-	return connect.NewResponse(res), nil
+	return connect.NewResponse(resp), nil
 }
 
 // Ping はサーバーの状態を確認するメソッドです
