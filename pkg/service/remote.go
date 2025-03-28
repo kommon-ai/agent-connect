@@ -28,7 +28,11 @@ func (s *RemoteAgentServer) ExecuteTask(
 ) (*connect.Response[proto.ExecuteTaskResponse], error) {
 	slog.Info("ExecuteTask", "request", req.Msg)
 
-	agent := s.factory.NewAgentFactory()(req.Msg)
+	agent, err := s.factory.NewAgentFactory()(req.Msg)
+	if err != nil {
+		return nil, err
+	}
+
 	longCtx := context.Background()
 	go func() {
 		if _, err := agent.Execute(longCtx, req.Msg.Instruction); err != nil {

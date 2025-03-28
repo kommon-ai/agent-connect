@@ -6,14 +6,14 @@ import (
 )
 
 type AgentFactory interface {
-	NewAgentFactory() func(msg *proto.ExecuteTaskRequest) agent.Agent
+	NewAgentFactory() func(msg *proto.ExecuteTaskRequest) (agent.Agent, error)
 }
 
 type NoopAgentFactory struct{}
 
-func (f *NoopAgentFactory) NewAgentFactory() func(msg *proto.ExecuteTaskRequest) agent.Agent {
-	return func(msg *proto.ExecuteTaskRequest) agent.Agent {
-		return &agent.NoopAgent{}
+func (f *NoopAgentFactory) NewAgentFactory() func(msg *proto.ExecuteTaskRequest) (agent.Agent, error) {
+	return func(msg *proto.ExecuteTaskRequest) (agent.Agent, error) {
+		return &agent.NoopAgent{}, nil
 	}
 }
 
