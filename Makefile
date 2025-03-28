@@ -42,3 +42,9 @@ curl-execute:
 		--header "Content-Type: application/json" \
 		--data '{"session_id":"test-curl","provider":{"model_name":"gpt-4o","api_key":"dummy-key","provider_name":"openai"},"github":{"api_token":"github-token","repo":"takutakahashi/agent-connect","branch_name":"main"},"instruction":"Hello from curl!"}' \
 		http://localhost:8080/remote.RemoteAgentService/ExecuteTask
+
+curl-execute-without-github:
+	curl \
+		--header "Content-Type: application/json" \
+		--data '{"session_id":"test-curl","provider":{"model_name":"gpt-4o","api_key":"dummy-key","provider_name":"openai"},"instruction":"Hello from curl without GitHub!"}' \
+		http://localhost:8080/remote.RemoteAgentService/ExecuteTask
