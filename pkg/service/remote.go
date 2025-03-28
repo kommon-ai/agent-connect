@@ -8,7 +8,7 @@ import (
 	"github.com/bufbuild/connect-go"
 	"github.com/kommon-ai/agent-connect/gen/proto"
 	"github.com/kommon-ai/agent-connect/gen/proto/protoconnect"
-	remoteagent "github.com/kommon-ai/agent-connect/pkg/agent"
+	remoteagent "github.com/kommon-ai/agent-go/pkg/agent"
 )
 
 // RemoteAgentServer はRemoteAgentServiceの実装です
