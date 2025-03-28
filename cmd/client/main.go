@@ -29,8 +29,8 @@ func main() {
 	}
 	log.Printf("Ping response: %v", pingResp.Msg.Status)
 
-	// ExecuteTaskリクエスト
-	executeReq := &proto.ExecuteTaskRequest{
+	// GitHubInfo付きのExecuteTaskリクエスト
+	executeReqWithGitHub := &proto.ExecuteTaskRequest{
 		SessionId: "test-session-1",
 		Provider: &proto.ProviderInfo{
 			ModelName:    "gpt-4o",
@@ -42,17 +42,39 @@ func main() {
 			Repo:        "kommon-ai/agent-connect",
 			BranchName:  "main",
 		},
-		Instruction: "Hello, execute this task!",
+		Instruction: "Hello with GitHub info!",
 	}
 
-	executeResp, err := client.ExecuteTask(ctx, connect.NewRequest(executeReq))
+	executeRespWithGitHub, err := client.ExecuteTask(ctx, connect.NewRequest(executeReqWithGitHub))
 	if err != nil {
-		log.Fatalf("ExecuteTask error: %v", err)
+		log.Fatalf("ExecuteTask with GitHub error: %v", err)
 	}
 
-	log.Printf("ExecuteTask response: Success=%v", executeResp.Msg.Success)
-	log.Printf("ExecuteTask stdout: %s", executeResp.Msg.Stdout)
-	if executeResp.Msg.Stderr != "" {
-		log.Printf("ExecuteTask stderr: %s", executeResp.Msg.Stderr)
+	log.Printf("ExecuteTask with GitHub response: Success=%v", executeRespWithGitHub.Msg.Success)
+	log.Printf("ExecuteTask with GitHub stdout: %s", executeRespWithGitHub.Msg.Stdout)
+	if executeRespWithGitHub.Msg.Stderr != "" {
+		log.Printf("ExecuteTask with GitHub stderr: %s", executeRespWithGitHub.Msg.Stderr)
+	}
+
+	// GitHubInfoなしのExecuteTaskリクエスト
+	executeReqWithoutGitHub := &proto.ExecuteTaskRequest{
+		SessionId: "test-session-2",
+		Provider: &proto.ProviderInfo{
+			ModelName:    "gpt-4o",
+			ApiKey:       "dummy-key",
+			ProviderName: "openai",
+		},
+		Instruction: "Hello without GitHub info!",
+	}
+
+	executeRespWithoutGitHub, err := client.ExecuteTask(ctx, connect.NewRequest(executeReqWithoutGitHub))
+	if err != nil {
+		log.Fatalf("ExecuteTask without GitHub error: %v", err)
+	}
+
+	log.Printf("ExecuteTask without GitHub response: Success=%v", executeRespWithoutGitHub.Msg.Success)
+	log.Printf("ExecuteTask without GitHub stdout: %s", executeRespWithoutGitHub.Msg.Stdout)
+	if executeRespWithoutGitHub.Msg.Stderr != "" {
+		log.Printf("ExecuteTask without GitHub stderr: %s", executeRespWithoutGitHub.Msg.Stderr)
 	}
 }
