@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package remote;
 
-option go_package = "github.com/takutakahashi/agent-connect/gen/remote";
+option go_package = "github.com/kommon-ai/agent-connect/gen/remote";
 
 service RemoteAgentService {
   rpc ExecuteTask(ExecuteTaskRequest) returns (ExecuteTaskResponse) {}
@@ -30,7 +30,7 @@ message GitHubInfo {
 message ExecuteTaskRequest {
   string session_id = 1;
   ProviderInfo provider = 2;
-  GitHubInfo github = 3;
+  optional GitHubInfo github = 3;
   string instruction = 4;
 }
 

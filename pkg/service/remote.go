@@ -2,7 +2,7 @@ package service
 
 import (
 	"context"
-	"log/slog"
+	"log"
 	"net/http"
 
 	"github.com/bufbuild/connect-go"
@@ -26,7 +26,7 @@ func (s *RemoteAgentServer) ExecuteTask(
 	ctx context.Context,
 	req *connect.Request[proto.ExecuteTaskRequest],
 ) (*connect.Response[proto.ExecuteTaskResponse], error) {
-	slog.Info("ExecuteTask", "request", req.Msg)
+	log.Printf("ExecuteTask: %+v", req.Msg)
 
 	agent, err := s.factory.NewAgentFactory()(req.Msg)
 	if err != nil {
@@ -36,7 +36,7 @@ func (s *RemoteAgentServer) ExecuteTask(
 	longCtx := context.Background()
 	go func() {
 		if _, err := agent.Execute(longCtx, req.Msg.Instruction); err != nil {
-			slog.Error("Error executing task", "error", err)
+			log.Printf("Error executing task: %v", err)
 		}
 	}()
 
@@ -53,7 +53,7 @@ func (s *RemoteAgentServer) Ping(
 	ctx context.Context,
 	req *connect.Request[proto.PingRequest],
 ) (*connect.Response[proto.PingResponse], error) {
-	slog.Info("Ping received")
+	log.Println("Ping received")
 
 	res := &proto.PingResponse{
 		Status: "OK",
