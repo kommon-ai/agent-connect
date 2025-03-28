@@ -4,8 +4,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/takutakahashi/agent-connect/pkg/agent"
-	"github.com/takutakahashi/agent-connect/pkg/service"
+	"github.com/kommon-ai/agent-connect/pkg/agent"
+	"github.com/kommon-ai/agent-connect/pkg/service"
 )
 
 func main() {

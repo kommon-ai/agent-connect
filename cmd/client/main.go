@@ -7,8 +7,8 @@ import (
 	"time"
 
 	"github.com/bufbuild/connect-go"
-	"github.com/takutakahashi/agent-connect/gen/proto"
-	"github.com/takutakahashi/agent-connect/gen/proto/protoconnect"
+	"github.com/kommon-ai/agent-connect/gen/proto"
+	"github.com/kommon-ai/agent-connect/gen/proto/protoconnect"
 )
 
 func main() {
@@ -39,7 +39,7 @@ func main() {
 		},
 		Github: &proto.GitHubInfo{
 			ApiToken:    "github-token",
-			Repo:        "takutakahashi/agent-connect",
+			Repo:        "kommon-ai/agent-connect",
 			BranchName:  "main",
 		},
 		Instruction: "Hello, execute this task!",

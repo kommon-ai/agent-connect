@@ -6,9 +6,9 @@ import (
 	"net/http"
 
 	"github.com/bufbuild/connect-go"
-	"github.com/takutakahashi/agent-connect/gen/proto"
-	"github.com/takutakahashi/agent-connect/gen/proto/protoconnect"
-	remoteagent "github.com/takutakahashi/agent-connect/pkg/agent"
+	"github.com/kommon-ai/agent-connect/gen/proto"
+	"github.com/kommon-ai/agent-connect/gen/proto/protoconnect"
+	remoteagent "github.com/kommon-ai/agent-connect/pkg/agent"
 )
 
 // RemoteAgentServer はRemoteAgentServiceの実装です

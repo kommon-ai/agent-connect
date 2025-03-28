@@ -8,7 +8,7 @@ import (
 	context "context"
 	errors "errors"
 	connect_go "github.com/bufbuild/connect-go"
-	proto "github.com/takutakahashi/agent-connect/gen/proto"
+	proto "github.com/kommon-ai/agent-connect/gen/proto"
 	http "net/http"
 	strings "strings"
 )
