@@ -8,16 +8,16 @@ import (
 	"github.com/bufbuild/connect-go"
 	"github.com/kommon-ai/agent-connect/gen/proto"
 	"github.com/kommon-ai/agent-connect/gen/proto/protoconnect"
-	remoteagent "github.com/kommon-ai/agent-go/pkg/agent"
+	"github.com/kommon-ai/agent-connect/pkg/agent"
 )
 
 // RemoteAgentServer はRemoteAgentServiceの実装です
 type RemoteAgentServer struct {
-	factory remoteagent.AgentFactory
+	factory agent.AgentFactory
 }
 
 // NewRemoteAgentServer は新しいRemoteAgentServerを作成します
-func NewRemoteAgentServer(factory remoteagent.AgentFactory) *RemoteAgentServer {
+func NewRemoteAgentServer(factory agent.AgentFactory) *RemoteAgentServer {
 	return &RemoteAgentServer{factory: factory}
 }
 
@@ -29,7 +29,8 @@ func (s *RemoteAgentServer) ExecuteTask(
 	slog.Info("ExecuteTask", "request", req.Msg)
 
 	// リクエストからsession_idを取得
-	agent := s.factory.NewAgent(req.Msg.SessionId)
+	f := s.factory.NewAgentFactory()
+	agent := f(req.Msg)
 	out, err := agent.Execute(ctx, req.Msg.Instruction)
 	if err != nil {
 		return nil, err
