@@ -7,10 +7,12 @@
     "strict": true,
     "outDir": "dist",
     "declaration": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "typeRoots": ["./node_modules/@types", "./src/types"]
   },
   "include": [
     "examples/**/*.ts",
-    "gen/**/*.ts"
+    "gen/**/*.ts",
+    "src/**/*.ts"
   ]
 }
