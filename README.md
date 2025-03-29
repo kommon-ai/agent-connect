@@ -32,6 +32,11 @@ This project provides a remote agent service that can execute tasks via a Connec
    buf generate
    ```
 
+4. For TypeScript client development, set up the Node.js environment:
+   ```
+   make setup-ts
+   ```
+
 ## Usage
 
 ### Running the Server
@@ -42,15 +47,23 @@ go run cmd/server/main.go
 
 This will start a server on port 8080.
 
-### Running the Client
+### Running the Go Client
 
 ```
 go run cmd/client/main.go
 ```
 
-This sample client will:
-1. Send a Ping request to check server availability
-2. Execute a sample task with the provided configuration
+### Running the TypeScript Client
+
+```
+make ts-client
+```
+
+This will:
+1. Ensure Node.js and npm are installed via mise
+2. Install TypeScript dependencies
+3. Build the TypeScript code
+4. Run the sample TypeScript client
 
 ## API
 
@@ -60,6 +73,62 @@ The service provides the following RPCs:
 - `ExecuteTask`: Executes a task with the specified configuration
 
 See `proto/remote.proto` for full details on the service definition and message formats.
+
+## TypeScript Client Library
+
+The TypeScript client library is automatically generated from the Protocol Buffer definitions using buf.
+
+### Installation and Setup
+
+```bash
+make setup-ts
+```
+
+### Using the Client in Your TypeScript Project
+
+```typescript
+import { createPromiseClient } from "@bufbuild/connect";
+import { createConnectTransport } from "@bufbuild/connect-web";
+import { RemoteAgentService } from "agent-connect-client/gen/proto";
+import { 
+  ExecuteTaskRequestSchema, 
+  ProviderInfoSchema 
+} from "agent-connect-client/gen/proto";
+import { create } from "@bufbuild/protobuf";
+
+// Create a transport
+const transport = createConnectTransport({
+  baseUrl: "http://localhost:8080",
+});
+
+// Create a client
+const client = createPromiseClient(RemoteAgentService, transport);
+
+// Create a request
+const request = create(ExecuteTaskRequestSchema, {
+  sessionId: "example-session",
+  provider: create(ProviderInfoSchema, {
+    modelName: "gpt-4o",
+    apiKey: "your-api-key",
+    providerName: "openai"
+  }),
+  instruction: "Hello from TypeScript!"
+});
+
+// Call the service
+async function executeTask() {
+  try {
+    const response = await client.executeTask(request);
+    console.log("Response:", response);
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+executeTask();
+```
+
+See the `examples/typescript` directory for more detailed examples.
 
 ## Development
 
