@@ -10,7 +10,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file proto/remote.proto.
  */
 export const file_proto_remote: GenFile = /*@__PURE__*/
-  fileDesc("ChJwcm90by9yZW1vdGUucHJvdG8SBnJlbW90ZSKiAQoMUHJvdmlkZXJJbmZvEhIKCm1vZGVsX25hbWUYASABKAkSDwoHYXBpX2tleRgCIAEoCRIVCg1wcm92aWRlcl9uYW1lGAMgASgJEioKA2VudhgEIAMoCzIdLnJlbW90ZS5Qcm92aWRlckluZm8uRW52RW50cnkaKgoIRW52RW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASKTAQoKR2l0SHViSW5mbxIRCglhcGlfdG9rZW4YASABKAkSDwoHYXBpX3VybBgCIAEoCRIMCgRyZXBvGAMgASgJEhUKDWZ1bGxfcmVwb191cmwYBCABKAkSEQoJcHJfbnVtYmVyGAUgASgFEhQKDGlzc3VlX251bWJlchgGIAEoBRITCgticmFuY2hfbmFtZRgHIAEoCSKZAQoSRXhlY3V0ZVRhc2tSZXF1ZXN0EhIKCnNlc3Npb25faWQYASABKAkSJgoIcHJvdmlkZXIYAiABKAsyFC5yZW1vdGUuUHJvdmlkZXJJbmZvEicKBmdpdGh1YhgDIAEoCzISLnJlbW90ZS5HaXRIdWJJbmZvSACIAQESEwoLaW5zdHJ1Y3Rpb24YBCABKAlCCQoHX2dpdGh1YiJaChNFeGVjdXRlVGFza1Jlc3BvbnNlEhIKCnNlc3Npb25faWQYASABKAkSDgoGc3Rkb3V0GAIgASgJEg4KBnN0ZGVychgDIAEoCRIPCgdzdWNjZXNzGAQgASgIIg0KC1BpbmdSZXF1ZXN0Ih4KDFBpbmdSZXNwb25zZRIOCgZzdGF0dXMYASABKAkykwEKElJlbW90ZUFnZW50U2VydmljZRJICgtFeGVjdXRlVGFzaxIaLnJlbW90ZS5FeGVjdXRlVGFza1JlcXVlc3QaGy5yZW1vdGUuRXhlY3V0ZVRhc2tSZXNwb25zZSIAEjMKBFBpbmcSEy5yZW1vdGUuUGluZ1JlcXVlc3QaFC5yZW1vdGUuUGluZ1Jlc3BvbnNlIgBCfwoKY29tLnJlbW90ZUILUmVtb3RlUHJvdG9QAVosZ2l0aHViLmNvbS9rb21tb24tYWkvYWdlbnQtY29ubmVjdC9nZW4vcHJvdG+iAgNSWFiqAgZSZW1vdGXKAgZSZW1vdGXiAhJSZW1vdGVcR1BCTWV0YWRhdGHqAgZSZW1vdGViBnByb3RvMw");
+  fileDesc("ChJwcm90by9yZW1vdGUucHJvdG8SBnJlbW90ZSKiAQoMUHJvdmlkZXJJbmZvEhIKCm1vZGVsX25hbWUYASABKAkSDwoHYXBpX2tleRgCIAEoCRIVCg1wcm92aWRlcl9uYW1lGAMgASgJEioKA2VudhgEIAMoCzIdLnJlbW90ZS5Qcm92aWRlckluZm8uRW52RW50cnkaKgoIRW52RW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASKTAQoKR2l0SHViSW5mbxIRCglhcGlfdG9rZW4YASABKAkSDwoHYXBpX3VybBgCIAEoCRIMCgRyZXBvGAMgASgJEhUKDWZ1bGxfcmVwb191cmwYBCABKAkSEQoJcHJfbnVtYmVyGAUgASgFEhQKDGlzc3VlX251bWJlchgGIAEoBRITCgticmFuY2hfbmFtZRgHIAEoCSIfCglTbGFja0luZm8SEgoKY2hhbm5lbF9pZBgBIAEoCSLKAQoSRXhlY3V0ZVRhc2tSZXF1ZXN0EhIKCnNlc3Npb25faWQYASABKAkSJgoIcHJvdmlkZXIYAiABKAsyFC5yZW1vdGUuUHJvdmlkZXJJbmZvEicKBmdpdGh1YhgDIAEoCzISLnJlbW90ZS5HaXRIdWJJbmZvSACIAQESJQoFc2xhY2sYBCABKAsyES5yZW1vdGUuU2xhY2tJbmZvSAGIAQESEwoLaW5zdHJ1Y3Rpb24YBSABKAlCCQoHX2dpdGh1YkIICgZfc2xhY2siWgoTRXhlY3V0ZVRhc2tSZXNwb25zZRISCgpzZXNzaW9uX2lkGAEgASgJEg4KBnN0ZG91dBgCIAEoCRIOCgZzdGRlcnIYAyABKAkSDwoHc3VjY2VzcxgEIAEoCCINCgtQaW5nUmVxdWVzdCIeCgxQaW5nUmVzcG9uc2USDgoGc3RhdHVzGAEgASgJMpMBChJSZW1vdGVBZ2VudFNlcnZpY2USSAoLRXhlY3V0ZVRhc2sSGi5yZW1vdGUuRXhlY3V0ZVRhc2tSZXF1ZXN0GhsucmVtb3RlLkV4ZWN1dGVUYXNrUmVzcG9uc2UiABIzCgRQaW5nEhMucmVtb3RlLlBpbmdSZXF1ZXN0GhQucmVtb3RlLlBpbmdSZXNwb25zZSIAQn8KCmNvbS5yZW1vdGVCC1JlbW90ZVByb3RvUAFaLGdpdGh1Yi5jb20va29tbW9uLWFpL2FnZW50LWNvbm5lY3QvZ2VuL3Byb3RvogIDUlhYqgIGUmVtb3RlygIGUmVtb3Rl4gISUmVtb3RlXEdQQk1ldGFkYXRh6gIGUmVtb3RlYgZwcm90bzM");
 
 /**
  * @generated from message remote.ProviderInfo
@@ -92,6 +92,23 @@ export const GitHubInfoSchema: GenMessage<GitHubInfo> = /*@__PURE__*/
   messageDesc(file_proto_remote, 1);
 
 /**
+ * @generated from message remote.SlackInfo
+ */
+export type SlackInfo = Message<"remote.SlackInfo"> & {
+  /**
+   * @generated from field: string channel_id = 1;
+   */
+  channelId: string;
+};
+
+/**
+ * Describes the message remote.SlackInfo.
+ * Use `create(SlackInfoSchema)` to create a new message.
+ */
+export const SlackInfoSchema: GenMessage<SlackInfo> = /*@__PURE__*/
+  messageDesc(file_proto_remote, 2);
+
+/**
  * @generated from message remote.ExecuteTaskRequest
  */
 export type ExecuteTaskRequest = Message<"remote.ExecuteTaskRequest"> & {
@@ -111,7 +128,12 @@ export type ExecuteTaskRequest = Message<"remote.ExecuteTaskRequest"> & {
   github?: GitHubInfo;
 
   /**
-   * @generated from field: string instruction = 4;
+   * @generated from field: optional remote.SlackInfo slack = 4;
+   */
+  slack?: SlackInfo;
+
+  /**
+   * @generated from field: string instruction = 5;
    */
   instruction: string;
 };
@@ -121,7 +143,7 @@ export type ExecuteTaskRequest = Message<"remote.ExecuteTaskRequest"> & {
  * Use `create(ExecuteTaskRequestSchema)` to create a new message.
  */
 export const ExecuteTaskRequestSchema: GenMessage<ExecuteTaskRequest> = /*@__PURE__*/
-  messageDesc(file_proto_remote, 2);
+  messageDesc(file_proto_remote, 3);
 
 /**
  * @generated from message remote.ExecuteTaskResponse
@@ -153,7 +175,7 @@ export type ExecuteTaskResponse = Message<"remote.ExecuteTaskResponse"> & {
  * Use `create(ExecuteTaskResponseSchema)` to create a new message.
  */
 export const ExecuteTaskResponseSchema: GenMessage<ExecuteTaskResponse> = /*@__PURE__*/
-  messageDesc(file_proto_remote, 3);
+  messageDesc(file_proto_remote, 4);
 
 /**
  * @generated from message remote.PingRequest
@@ -166,7 +188,7 @@ export type PingRequest = Message<"remote.PingRequest"> & {
  * Use `create(PingRequestSchema)` to create a new message.
  */
 export const PingRequestSchema: GenMessage<PingRequest> = /*@__PURE__*/
-  messageDesc(file_proto_remote, 4);
+  messageDesc(file_proto_remote, 5);
 
 /**
  * @generated from message remote.PingResponse
@@ -183,7 +205,7 @@ export type PingResponse = Message<"remote.PingResponse"> & {
  * Use `create(PingResponseSchema)` to create a new message.
  */
 export const PingResponseSchema: GenMessage<PingResponse> = /*@__PURE__*/
-  messageDesc(file_proto_remote, 5);
+  messageDesc(file_proto_remote, 6);
 
 /**
  * @generated from service remote.RemoteAgentService

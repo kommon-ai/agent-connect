@@ -27,11 +27,16 @@ message GitHubInfo {
   string branch_name = 7;
 }
 
+message SlackInfo {
+  string channel_id = 1;
+}
+
 message ExecuteTaskRequest {
   string session_id = 1;
   ProviderInfo provider = 2;
   optional GitHubInfo github = 3;
-  string instruction = 4;
+  optional SlackInfo slack = 4;
+  string instruction = 5;
 }
 
 message ExecuteTaskResponse {

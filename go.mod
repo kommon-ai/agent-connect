@@ -1,6 +1,6 @@
 module github.com/kommon-ai/agent-connect
 
-go 1.19
+go 1.23.1
 
 require (
 	github.com/bufbuild/connect-go v1.10.0
