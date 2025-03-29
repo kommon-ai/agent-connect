@@ -1,0 +1,30 @@
+{
+  "name": "agent-connect-client",
+  "version": "0.1.0",
+  "description": "TypeScript client library for Agent Connect",
+  "main": "gen/proto/index.js",
+  "types": "gen/proto/index.d.ts",
+  "files": [
+    "gen/proto/*.ts",
+    "gen/proto/*.js"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@bufbuild/connect": "^0.13.0",
+    "@bufbuild/connect-web": "^0.13.0",
+    "@bufbuild/protobuf": "^1.4.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  },
+  "keywords": [
+    "agent-connect",
+    "client",
+    "typescript",
+    "protobuf"
+  ],
+  "license": "MIT"
+}
