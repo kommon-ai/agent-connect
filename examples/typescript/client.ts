@@ -1,11 +1,11 @@
 import { createConnectTransport } from "@connectrpc/connect-web";
 import { createClient } from "@connectrpc/connect";
-import { RemoteAgentService } from "../../gen/proto/remote_connect.js";
+import { RemoteAgentService } from "@gen/remote_pb.js";
 import { 
   ExecuteTaskRequest, 
   ProviderInfo,
   PingRequest 
-} from "../../gen/proto/remote_pb.js";
+} from "@gen/remote_pb.js";
 
 // Create a transport for the connection
 const transport = createConnectTransport({
@@ -18,7 +18,7 @@ const client = createClient(RemoteAgentService, transport);
 // Example: Ping the server
 async function pingExample() {
   try {
-    const request = new PingRequest();
+    const request = { };
     const response = await client.ping(request);
     console.log("Ping response:", response);
   } catch (error) {
@@ -29,18 +29,18 @@ async function pingExample() {
 // Example: Execute a task
 async function executeTaskExample() {
   try {
-    const provider = new ProviderInfo({
+    const provider = {
       modelName: "gpt-4o",
       apiKey: "your-api-key",  // Replace with actual API key
       providerName: "openai",
       env: {}
-    });
+    };
     
-    const request = new ExecuteTaskRequest({
+    const request = {
       sessionId: "example-session",
       provider: provider,
       instruction: "Hello from TypeScript client!"
-    });
+    };
     
     const response = await client.executeTask(request);
     console.log("Execute task response:", response);
