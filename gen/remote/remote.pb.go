@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        (unknown)
-// source: proto/remote.proto
+// source: remote.proto
 
 package remote
 
@@ -33,7 +33,7 @@ type ProviderInfo struct {
 
 func (x *ProviderInfo) Reset() {
 	*x = ProviderInfo{}
-	mi := &file_proto_remote_proto_msgTypes[0]
+	mi := &file_remote_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -45,7 +45,7 @@ func (x *ProviderInfo) String() string {
 func (*ProviderInfo) ProtoMessage() {}
 
 func (x *ProviderInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_remote_proto_msgTypes[0]
+	mi := &file_remote_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -58,7 +58,7 @@ func (x *ProviderInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProviderInfo.ProtoReflect.Descriptor instead.
 func (*ProviderInfo) Descriptor() ([]byte, []int) {
-	return file_proto_remote_proto_rawDescGZIP(), []int{0}
+	return file_remote_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *ProviderInfo) GetModelName() string {
@@ -104,7 +104,7 @@ type GitHubInfo struct {
 
 func (x *GitHubInfo) Reset() {
 	*x = GitHubInfo{}
-	mi := &file_proto_remote_proto_msgTypes[1]
+	mi := &file_remote_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -116,7 +116,7 @@ func (x *GitHubInfo) String() string {
 func (*GitHubInfo) ProtoMessage() {}
 
 func (x *GitHubInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_remote_proto_msgTypes[1]
+	mi := &file_remote_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -129,7 +129,7 @@ func (x *GitHubInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GitHubInfo.ProtoReflect.Descriptor instead.
 func (*GitHubInfo) Descriptor() ([]byte, []int) {
-	return file_proto_remote_proto_rawDescGZIP(), []int{1}
+	return file_remote_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *GitHubInfo) GetApiToken() string {
@@ -190,7 +190,7 @@ type SlackInfo struct {
 
 func (x *SlackInfo) Reset() {
 	*x = SlackInfo{}
-	mi := &file_proto_remote_proto_msgTypes[2]
+	mi := &file_remote_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -202,7 +202,7 @@ func (x *SlackInfo) String() string {
 func (*SlackInfo) ProtoMessage() {}
 
 func (x *SlackInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_remote_proto_msgTypes[2]
+	mi := &file_remote_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -215,7 +215,7 @@ func (x *SlackInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SlackInfo.ProtoReflect.Descriptor instead.
 func (*SlackInfo) Descriptor() ([]byte, []int) {
-	return file_proto_remote_proto_rawDescGZIP(), []int{2}
+	return file_remote_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *SlackInfo) GetChannelId() string {
@@ -238,7 +238,7 @@ type ExecuteTaskRequest struct {
 
 func (x *ExecuteTaskRequest) Reset() {
 	*x = ExecuteTaskRequest{}
-	mi := &file_proto_remote_proto_msgTypes[3]
+	mi := &file_remote_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -250,7 +250,7 @@ func (x *ExecuteTaskRequest) String() string {
 func (*ExecuteTaskRequest) ProtoMessage() {}
 
 func (x *ExecuteTaskRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_remote_proto_msgTypes[3]
+	mi := &file_remote_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -263,7 +263,7 @@ func (x *ExecuteTaskRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ExecuteTaskRequest.ProtoReflect.Descriptor instead.
 func (*ExecuteTaskRequest) Descriptor() ([]byte, []int) {
-	return file_proto_remote_proto_rawDescGZIP(), []int{3}
+	return file_remote_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *ExecuteTaskRequest) GetSessionId() string {
@@ -313,7 +313,7 @@ type ExecuteTaskResponse struct {
 
 func (x *ExecuteTaskResponse) Reset() {
 	*x = ExecuteTaskResponse{}
-	mi := &file_proto_remote_proto_msgTypes[4]
+	mi := &file_remote_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -325,7 +325,7 @@ func (x *ExecuteTaskResponse) String() string {
 func (*ExecuteTaskResponse) ProtoMessage() {}
 
 func (x *ExecuteTaskResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_remote_proto_msgTypes[4]
+	mi := &file_remote_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -338,7 +338,7 @@ func (x *ExecuteTaskResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ExecuteTaskResponse.ProtoReflect.Descriptor instead.
 func (*ExecuteTaskResponse) Descriptor() ([]byte, []int) {
-	return file_proto_remote_proto_rawDescGZIP(), []int{4}
+	return file_remote_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *ExecuteTaskResponse) GetSessionId() string {
@@ -377,7 +377,7 @@ type PingRequest struct {
 
 func (x *PingRequest) Reset() {
 	*x = PingRequest{}
-	mi := &file_proto_remote_proto_msgTypes[5]
+	mi := &file_remote_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -389,7 +389,7 @@ func (x *PingRequest) String() string {
 func (*PingRequest) ProtoMessage() {}
 
 func (x *PingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_remote_proto_msgTypes[5]
+	mi := &file_remote_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -402,7 +402,7 @@ func (x *PingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PingRequest.ProtoReflect.Descriptor instead.
 func (*PingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_remote_proto_rawDescGZIP(), []int{5}
+	return file_remote_proto_rawDescGZIP(), []int{5}
 }
 
 type PingResponse struct {
@@ -414,7 +414,7 @@ type PingResponse struct {
 
 func (x *PingResponse) Reset() {
 	*x = PingResponse{}
-	mi := &file_proto_remote_proto_msgTypes[6]
+	mi := &file_remote_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -426,7 +426,7 @@ func (x *PingResponse) String() string {
 func (*PingResponse) ProtoMessage() {}
 
 func (x *PingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_remote_proto_msgTypes[6]
+	mi := &file_remote_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -439,7 +439,7 @@ func (x *PingResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PingResponse.ProtoReflect.Descriptor instead.
 func (*PingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_remote_proto_rawDescGZIP(), []int{6}
+	return file_remote_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *PingResponse) GetStatus() string {
@@ -449,11 +449,11 @@ func (x *PingResponse) GetStatus() string {
 	return ""
 }
 
-var File_proto_remote_proto protoreflect.FileDescriptor
+var File_remote_proto protoreflect.FileDescriptor
 
-const file_proto_remote_proto_rawDesc = "" +
+const file_remote_proto_rawDesc = "" +
 	"\n" +
-	"\x12proto/remote.proto\x12\x06remote\"\xd4\x01\n" +
+	"\fremote.proto\x12\x06remote\"\xd4\x01\n" +
 	"\fProviderInfo\x12\x1d\n" +
 	"\n" +
 	"model_name\x18\x01 \x01(\tR\tmodelName\x12\x17\n" +
@@ -501,19 +501,19 @@ const file_proto_remote_proto_rawDesc = "" +
 	"com.remoteB\vRemoteProtoP\x01Z-github.com/kommon-ai/agent-connect/gen/remote\xa2\x02\x03RXX\xaa\x02\x06Remote\xca\x02\x06Remote\xe2\x02\x12Remote\\GPBMetadata\xea\x02\x06Remoteb\x06proto3"
 
 var (
-	file_proto_remote_proto_rawDescOnce sync.Once
-	file_proto_remote_proto_rawDescData []byte
+	file_remote_proto_rawDescOnce sync.Once
+	file_remote_proto_rawDescData []byte
 )
 
-func file_proto_remote_proto_rawDescGZIP() []byte {
-	file_proto_remote_proto_rawDescOnce.Do(func() {
-		file_proto_remote_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_remote_proto_rawDesc), len(file_proto_remote_proto_rawDesc)))
+func file_remote_proto_rawDescGZIP() []byte {
+	file_remote_proto_rawDescOnce.Do(func() {
+		file_remote_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_remote_proto_rawDesc), len(file_remote_proto_rawDesc)))
 	})
-	return file_proto_remote_proto_rawDescData
+	return file_remote_proto_rawDescData
 }
 
-var file_proto_remote_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
-var file_proto_remote_proto_goTypes = []any{
+var file_remote_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_remote_proto_goTypes = []any{
 	(*ProviderInfo)(nil),        // 0: remote.ProviderInfo
 	(*GitHubInfo)(nil),          // 1: remote.GitHubInfo
 	(*SlackInfo)(nil),           // 2: remote.SlackInfo
@@ -523,7 +523,7 @@ var file_proto_remote_proto_goTypes = []any{
 	(*PingResponse)(nil),        // 6: remote.PingResponse
 	nil,                         // 7: remote.ProviderInfo.EnvEntry
 }
-var file_proto_remote_proto_depIdxs = []int32{
+var file_remote_proto_depIdxs = []int32{
 	7, // 0: remote.ProviderInfo.env:type_name -> remote.ProviderInfo.EnvEntry
 	0, // 1: remote.ExecuteTaskRequest.provider:type_name -> remote.ProviderInfo
 	1, // 2: remote.ExecuteTaskRequest.github:type_name -> remote.GitHubInfo
@@ -539,27 +539,27 @@ var file_proto_remote_proto_depIdxs = []int32{
 	0, // [0:4] is the sub-list for field type_name
 }
 
-func init() { file_proto_remote_proto_init() }
-func file_proto_remote_proto_init() {
-	if File_proto_remote_proto != nil {
+func init() { file_remote_proto_init() }
+func file_remote_proto_init() {
+	if File_remote_proto != nil {
 		return
 	}
-	file_proto_remote_proto_msgTypes[3].OneofWrappers = []any{}
+	file_remote_proto_msgTypes[3].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_remote_proto_rawDesc), len(file_proto_remote_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_remote_proto_rawDesc), len(file_remote_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_proto_remote_proto_goTypes,
-		DependencyIndexes: file_proto_remote_proto_depIdxs,
-		MessageInfos:      file_proto_remote_proto_msgTypes,
+		GoTypes:           file_remote_proto_goTypes,
+		DependencyIndexes: file_remote_proto_depIdxs,
+		MessageInfos:      file_remote_proto_msgTypes,
 	}.Build()
-	File_proto_remote_proto = out.File
-	file_proto_remote_proto_goTypes = nil
-	file_proto_remote_proto_depIdxs = nil
+	File_remote_proto = out.File
+	file_remote_proto_goTypes = nil
+	file_remote_proto_depIdxs = nil
 }

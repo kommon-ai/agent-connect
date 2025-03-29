@@ -1,11 +1,10 @@
+# For details on buf.yaml configuration, visit https://buf.build/docs/configuration/v2/buf-yaml
 version: v2
-name: buf.build/takutakahashi/agent-connect
-deps:
-  - buf.build/googleapis/googleapis
-  - buf.build/bufbuild/protovalidate
+modules:
+  - path: proto
+lint:
+  use:
+    - STANDARD
 breaking:
   use:
     - FILE
-lint:
-  use:
-    - DEFAULT

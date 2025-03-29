@@ -1,7 +1,7 @@
 package agent
 
 import (
-	remote "github.com/kommon-ai/agent-connect/gen/proto"
+	"github.com/kommon-ai/agent-connect/gen/remote"
 	"github.com/kommon-ai/agent-go/pkg/agent"
 )
 

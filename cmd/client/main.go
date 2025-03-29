@@ -7,13 +7,13 @@ import (
 	"time"
 
 	"github.com/bufbuild/connect-go"
-	"github.com/kommon-ai/agent-connect/gen/proto"
-	"github.com/kommon-ai/agent-connect/gen/proto/protoconnect"
+	"github.com/kommon-ai/agent-connect/gen/remote"
+	"github.com/kommon-ai/agent-connect/gen/remoteconnect"
 )
 
 func main() {
 	// クライアントの作成
-	client := protoconnect.NewRemoteAgentServiceClient(
+	client := remoteconnect.NewRemoteAgentServiceClient(
 		http.DefaultClient,
 		"http://localhost:8080", // サーバーのアドレス
 	)
@@ -23,24 +23,24 @@ func main() {
 	defer cancel()
 
 	// Pingリクエスト
-	pingResp, err := client.Ping(ctx, connect.NewRequest(&proto.PingRequest{}))
+	pingResp, err := client.Ping(ctx, connect.NewRequest(&remote.PingRequest{}))
 	if err != nil {
 		log.Fatalf("Ping error: %v", err)
 	}
 	log.Printf("Ping response: %v", pingResp.Msg.Status)
 
 	// GitHubInfo付きのExecuteTaskリクエスト
-	executeReqWithGitHub := &proto.ExecuteTaskRequest{
+	executeReqWithGitHub := &remote.ExecuteTaskRequest{
 		SessionId: "test-session-1",
-		Provider: &proto.ProviderInfo{
+		Provider: &remote.ProviderInfo{
 			ModelName:    "gpt-4o",
 			ApiKey:       "dummy-key",
 			ProviderName: "openai",
 		},
-		Github: &proto.GitHubInfo{
-			ApiToken:    "github-token",
-			Repo:        "kommon-ai/agent-connect",
-			BranchName:  "main",
+		Github: &remote.GitHubInfo{
+			ApiToken:   "github-token",
+			Repo:       "kommon-ai/agent-connect",
+			BranchName: "main",
 		},
 		Instruction: "Hello with GitHub info!",
 	}
@@ -57,9 +57,9 @@ func main() {
 	}
 
 	// GitHubInfoなしのExecuteTaskリクエスト
-	executeReqWithoutGitHub := &proto.ExecuteTaskRequest{
+	executeReqWithoutGitHub := &remote.ExecuteTaskRequest{
 		SessionId: "test-session-2",
-		Provider: &proto.ProviderInfo{
+		Provider: &remote.ProviderInfo{
 			ModelName:    "gpt-4o",
 			ApiKey:       "dummy-key",
 			ProviderName: "openai",

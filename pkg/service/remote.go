@@ -6,8 +6,8 @@ import (
 	"net/http"
 
 	"github.com/bufbuild/connect-go"
-	remote "github.com/kommon-ai/agent-connect/gen/proto"
-	"github.com/kommon-ai/agent-connect/gen/proto/protoconnect"
+	"github.com/kommon-ai/agent-connect/gen/remote"
+	"github.com/kommon-ai/agent-connect/gen/remoteconnect"
 	"github.com/kommon-ai/agent-connect/pkg/agent"
 )
 
@@ -68,5 +68,5 @@ func (s *RemoteAgentServer) Ping(
 
 // Handler はRemoteAgentServiceのHTTPハンドラを返します
 func (s *RemoteAgentServer) Handler() (string, http.Handler) {
-	return protoconnect.NewRemoteAgentServiceHandler(s)
+	return remoteconnect.NewRemoteAgentServiceHandler(s)
 }
