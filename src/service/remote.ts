@@ -6,8 +6,8 @@ import type {
   PingRequest, 
   PingResponse,
   PingResponseSchema
-} from '../../gen/proto/remote_pb.js';
-import { RemoteAgentService } from '../../gen/proto/remote_connect.js';
+} from '@gen/remote_pb.js';
+import { RemoteAgentService } from '@gen/remote_pb.js';
 import { AgentFactory } from '../agent/factory.js';
 import { Context } from '../agent/context.js';
 
@@ -104,7 +104,6 @@ export class RemoteAgentServer {
 export function registerRemoteAgentService(router: ConnectRouter, factory: AgentFactory): string {
   const server = new RemoteAgentServer(factory);
   
-  // @ts-expect-error - Type mismatch in ConnectRouter.service, but it works at runtime
   router.service(RemoteAgentService, {
     executeTask: server.executeTask.bind(server),
     ping: server.ping.bind(server)

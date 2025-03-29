@@ -1,4 +1,4 @@
-import { ExecuteTaskRequest } from '../../gen/proto/remote_pb.js';
+import type { ExecuteTaskRequest } from '../../gen/proto/remote_pb.js';
 import { Agent } from './interfaces.js';
 import { NoopAgent } from './noop.js';
 

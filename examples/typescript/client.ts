@@ -1,12 +1,11 @@
-import { createPromiseClient } from "@bufbuild/connect";
-import { createConnectTransport } from "@bufbuild/connect-web";
-import { RemoteAgentService } from "../../gen/proto/remote_connect";
+import { createConnectTransport } from "@connectrpc/connect-web";
+import { createClient } from "@connectrpc/connect";
+import { RemoteAgentService } from "@gen/remote_pb.js";
 import { 
-  ExecuteTaskRequestSchema, 
-  ProviderInfoSchema,
-  PingRequestSchema 
-} from "../../gen/proto/remote_pb";
-import { create } from "@bufbuild/protobuf";
+  ExecuteTaskRequest, 
+  ProviderInfo,
+  PingRequest 
+} from "@gen/remote_pb.js";
 
 // Create a transport for the connection
 const transport = createConnectTransport({
@@ -14,12 +13,12 @@ const transport = createConnectTransport({
 });
 
 // Create a client using the transport
-const client = createPromiseClient(RemoteAgentService, transport);
+const client = createClient(RemoteAgentService, transport);
 
 // Example: Ping the server
 async function pingExample() {
   try {
-    const request = create(PingRequestSchema, {});
+    const request = { };
     const response = await client.ping(request);
     console.log("Ping response:", response);
   } catch (error) {
@@ -30,18 +29,18 @@ async function pingExample() {
 // Example: Execute a task
 async function executeTaskExample() {
   try {
-    const provider = create(ProviderInfoSchema, {
+    const provider = {
       modelName: "gpt-4o",
       apiKey: "your-api-key",  // Replace with actual API key
       providerName: "openai",
       env: {}
-    });
+    };
     
-    const request = create(ExecuteTaskRequestSchema, {
+    const request = {
       sessionId: "example-session",
       provider: provider,
       instruction: "Hello from TypeScript client!"
-    });
+    };
     
     const response = await client.executeTask(request);
     console.log("Execute task response:", response);

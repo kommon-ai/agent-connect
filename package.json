@@ -2,31 +2,33 @@
   "name": "agent-connect-client",
   "version": "0.1.0",
   "description": "TypeScript client library for Agent Connect",
-  "main": "gen/proto/index.js",
-  "types": "gen/proto/index.d.ts",
+  "main": "dist/src/gen/index.js",
+  "types": "dist/src/gen/index.d.ts",
   "files": [
-    "gen/proto/*.ts",
-    "gen/proto/*.js",
     "dist/src/**/*.js",
     "dist/src/**/*.d.ts"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "npm run build:proto && tsc",
+    "build:proto": "buf generate",
+    "build:watch": "tsc -w",
     "start": "node dist/src/server.js",
-    "dev": "tsc -w & node --watch dist/src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npm run build:watch & node --watch dist/src/server.js",
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean"
   },
   "dependencies": {
-    "@bufbuild/connect": "^0.13.0",
-    "@bufbuild/connect-node": "^0.13.0",
-    "@bufbuild/connect-web": "^0.13.0",
-    "@bufbuild/protobuf": "^2.2.0",
+    "@bufbuild/buf": "^1.51.0",
+    "@bufbuild/protobuf": "^2.2.5",
     "@connectrpc/connect": "^2.0.2",
     "@connectrpc/connect-fastify": "^2.0.2",
+    "@connectrpc/connect-node": "^2.0.2",
+    "@connectrpc/connect-web": "^2.0.2",
     "fastify": "^4.25.2"
   },
   "devDependencies": {
-    "@types/node": "^22.13.14",
+    "@types/node": "^20.9.0",
+    "rimraf": "^5.0.5",
     "typescript": "^5.2.2"
   },
   "keywords": [

@@ -6,8 +6,8 @@ import (
 	"net/http"
 
 	"github.com/bufbuild/connect-go"
-	"github.com/kommon-ai/agent-connect/gen/proto"
-	"github.com/kommon-ai/agent-connect/gen/proto/protoconnect"
+	"github.com/kommon-ai/agent-connect/gen/remote"
+	"github.com/kommon-ai/agent-connect/gen/remoteconnect"
 	"github.com/kommon-ai/agent-connect/pkg/agent"
 )
 
@@ -24,8 +24,8 @@ func NewRemoteAgentServer(factory agent.AgentFactory) *RemoteAgentServer {
 // ExecuteTask はタスクを実行するメソッドです
 func (s *RemoteAgentServer) ExecuteTask(
 	ctx context.Context,
-	req *connect.Request[proto.ExecuteTaskRequest],
-) (*connect.Response[proto.ExecuteTaskResponse], error) {
+	req *connect.Request[remote.ExecuteTaskRequest],
+) (*connect.Response[remote.ExecuteTaskResponse], error) {
 	agent, err := s.factory.NewAgentFactory()(req.Msg)
 	if err != nil {
 		return nil, err
@@ -44,7 +44,7 @@ func (s *RemoteAgentServer) ExecuteTask(
 		}
 	}()
 
-	resp := &proto.ExecuteTaskResponse{
+	resp := &remote.ExecuteTaskResponse{
 		Stdout: "Task enqueued successfully",
 		Stderr: "",
 	}
@@ -55,11 +55,11 @@ func (s *RemoteAgentServer) ExecuteTask(
 // Ping はサーバーの状態を確認するメソッドです
 func (s *RemoteAgentServer) Ping(
 	ctx context.Context,
-	req *connect.Request[proto.PingRequest],
-) (*connect.Response[proto.PingResponse], error) {
+	req *connect.Request[remote.PingRequest],
+) (*connect.Response[remote.PingResponse], error) {
 	log.Println("Ping received")
 
-	res := &proto.PingResponse{
+	res := &remote.PingResponse{
 		Status: "OK",
 	}
 
@@ -68,5 +68,5 @@ func (s *RemoteAgentServer) Ping(
 
 // Handler はRemoteAgentServiceのHTTPハンドラを返します
 func (s *RemoteAgentServer) Handler() (string, http.Handler) {
-	return protoconnect.NewRemoteAgentServiceHandler(s)
+	return remoteconnect.NewRemoteAgentServiceHandler(s)
 }
