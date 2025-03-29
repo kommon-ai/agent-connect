@@ -1,5 +1,5 @@
-import { createPromiseClient } from "@connectrpc/connect";
 import { createConnectTransport } from "@connectrpc/connect-web";
+import {createClient} from "@connectrpc/connect";
 import { RemoteAgentService } from "../../gen/proto/remote_connect";
 import { 
   ExecuteTaskRequestSchema, 
@@ -14,7 +14,7 @@ const transport = createConnectTransport({
 });
 
 // Create a client using the transport
-const client = createPromiseClient(RemoteAgentService, transport);
+const client = createClient(RemoteAgentService, transport);
 
 // Example: Ping the server
 async function pingExample() {
