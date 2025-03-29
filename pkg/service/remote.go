@@ -33,8 +33,14 @@ func (s *RemoteAgentServer) ExecuteTask(
 
 	longCtx := context.Background()
 	go func() {
+		if err := s.factory.GetBeforeTaskExecutionFunc()(req.Msg); err != nil {
+			log.Printf("Error executing before hook: %v", err)
+		}
 		if _, err := agent.Execute(longCtx, req.Msg.Instruction); err != nil {
 			log.Printf("Error executing task: %v", err)
+		}
+		if err := s.factory.GetAfterTaskExecutionFunc()(req.Msg); err != nil {
+			log.Printf("Error executing after hook: %v", err)
 		}
 	}()
 
