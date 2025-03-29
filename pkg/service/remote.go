@@ -26,8 +26,6 @@ func (s *RemoteAgentServer) ExecuteTask(
 	ctx context.Context,
 	req *connect.Request[proto.ExecuteTaskRequest],
 ) (*connect.Response[proto.ExecuteTaskResponse], error) {
-	log.Printf("ExecuteTask: %+v", req.Msg)
-
 	agent, err := s.factory.NewAgentFactory()(req.Msg)
 	if err != nil {
 		return nil, err

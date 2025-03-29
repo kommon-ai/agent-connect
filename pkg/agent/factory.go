@@ -6,15 +6,40 @@ import (
 )
 
 type AgentFactory interface {
+	SetBeforeTaskExecutionFunc(func(msg *proto.ExecuteTaskRequest) error) error
+	SetAfterTaskExecutionFunc(func(msg *proto.ExecuteTaskRequest, result *proto.ExecuteTaskResponse) error) error
+	GetBeforeTaskExecutionFunc() func(msg *proto.ExecuteTaskRequest) error
+	GetAfterTaskExecutionFunc() func(msg *proto.ExecuteTaskRequest, result *proto.ExecuteTaskResponse) error
 	NewAgentFactory() func(msg *proto.ExecuteTaskRequest) (agent.Agent, error)
 }
 
-type NoopAgentFactory struct{}
+type NoopAgentFactory struct {
+	beforeTaskExecutionFunc func(msg *proto.ExecuteTaskRequest) error
+	afterTaskExecutionFunc  func(msg *proto.ExecuteTaskRequest, result *proto.ExecuteTaskResponse) error
+}
 
 func (f *NoopAgentFactory) NewAgentFactory() func(msg *proto.ExecuteTaskRequest) (agent.Agent, error) {
 	return func(msg *proto.ExecuteTaskRequest) (agent.Agent, error) {
 		return &agent.NoopAgent{}, nil
 	}
+}
+
+func (f *NoopAgentFactory) SetBeforeTaskExecutionFunc(hook func(msg *proto.ExecuteTaskRequest) error) error {
+	f.beforeTaskExecutionFunc = hook
+	return nil
+}
+
+func (f *NoopAgentFactory) SetAfterTaskExecutionFunc(hook func(msg *proto.ExecuteTaskRequest, result *proto.ExecuteTaskResponse) error) error {
+	f.afterTaskExecutionFunc = hook
+	return nil
+}
+
+func (f *NoopAgentFactory) GetBeforeTaskExecutionFunc() func(msg *proto.ExecuteTaskRequest) error {
+	return f.beforeTaskExecutionFunc
+}
+
+func (f *NoopAgentFactory) GetAfterTaskExecutionFunc() func(msg *proto.ExecuteTaskRequest, result *proto.ExecuteTaskResponse) error {
+	return f.afterTaskExecutionFunc
 }
 
 func NewNoopAgentFactory() AgentFactory {
